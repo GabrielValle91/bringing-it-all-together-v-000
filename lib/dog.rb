@@ -36,9 +36,9 @@ class Dog
     SQL
     dog = DB[:conn].execute(sql,:name, :breed)[0][0]
     if dog
-
+      @@all[dog - 1]
     else
-
+      self.create(attribute_hash)
     end
   end
 
