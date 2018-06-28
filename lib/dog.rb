@@ -34,7 +34,7 @@ class Dog
       SELECT * FROM dogs
       WHERE name = ? AND breed = ?
     SQL
-    binding.pry
+    #binding.pry
     dog = DB[:conn].execute(sql, attribute_hash[:name], attribute_hash[:breed])[0]
     if dog
       @@all[dog[0] - 1]
