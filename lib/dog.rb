@@ -10,7 +10,7 @@ class Dog
   end
 
   def self.new_from_db(row)
-    
+
   end
 
   def save
@@ -34,7 +34,7 @@ class Dog
     SQL
     DB[:conn].execute(sql, id).first
   end
-  
+
   def self.create_table
     sql = <<-SQL
       CREATE TABLE IF NOT EXISTS dogs (
