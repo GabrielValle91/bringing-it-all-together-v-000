@@ -39,6 +39,7 @@ class Dog
       WHERE id = ?
     SQL
     dog = DB[:conn].execute(sql, id)[0][0] - 1
+    binding.pry
     @@all[dog]
   end
 
