@@ -11,7 +11,8 @@ class Dog
   end
 
   def self.new_from_db(row)
-
+    new_dog = Dog.new(row[1], row[2], row[0])
+    new_dog
   end
 
   def save
@@ -28,6 +29,10 @@ class Dog
     self
   end
 
+  def self.find_or_create_by(attribute_hash)
+
+  end
+
   def self.create(attribute_hash)
     new_dog = Dog.new(attribute_hash)
     new_dog.save
@@ -40,7 +45,6 @@ class Dog
       WHERE id = ?
     SQL
     dog = DB[:conn].execute(sql, id)[0][0] - 1
-    #binding.pry
     @@all[dog]
   end
 
