@@ -61,4 +61,8 @@ class Dog
     SQL
     DB[:conn].execute(sql)
   end
+
+  def self.clear_all
+    @@all.clear
+  end
 end
