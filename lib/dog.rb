@@ -1,3 +1,4 @@
+require 'pry'
 class Dog
   @@all = []
   attr_accessor :id, :name, :breed
