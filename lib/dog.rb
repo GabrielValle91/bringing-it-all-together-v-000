@@ -35,9 +35,9 @@ class Dog
       WHERE name = ? AND breed = ?
     SQL
     binding.pry
-    dog = DB[:conn].execute(sql, attribute_hash[:name], attribute_hash[:breed])[0][0]
+    dog = DB[:conn].execute(sql, attribute_hash[:name], attribute_hash[:breed])[0]
     if dog
-      @@all[dog - 1]
+      @@all[dog[0] - 1]
     else
       self.create(attribute_hash)
     end
