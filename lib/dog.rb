@@ -32,7 +32,7 @@ class Dog
   def self.find_or_create_by(attribute_hash)
     sql = <<-SQL
       SELECT * FROM dogs
-      WHERE name = ?, breed = ?
+      WHERE name = ? AND breed = ?
     SQL
     dog = DB[:conn].execute(sql,:name, :breed)[0][0]
     if dog
