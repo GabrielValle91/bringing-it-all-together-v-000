@@ -34,7 +34,8 @@ class Dog
       SELECT * FROM dogs
       WHERE name = ?
     SQL
-    DB[:conn].execute(sql, name)[0]
+    dog = DB[:conn].execute(sql, name)[0][0]
+    @@all [dog - 1]
   end
 
   def update
@@ -42,6 +43,7 @@ class Dog
       UPDATE dogs SET name = ?, breed = ? WHERE id = ?
     SQL
     DB[:conn].execute(sql, self.name, self.breed, self.id)
+
   end
 
   def self.find_or_create_by(attribute_hash)
