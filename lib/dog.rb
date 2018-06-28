@@ -34,7 +34,7 @@ class Dog
       SELECT * FROM dogs
       WHERE name = ? AND breed = ?
     SQL
-    dog = DB[:conn].execute(sql,:name, :breed)[0][0]
+    dog = DB[:conn].execute(sql, name, breed)[0][0]
     if dog
       @@all[dog - 1]
     else
