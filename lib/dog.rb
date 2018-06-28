@@ -38,7 +38,8 @@ class Dog
       SELECT * FROM dogs
       WHERE id = ?
     SQL
-    DB[:conn].execute(sql, id)[0][0]
+    dog = DB[:conn].execute(sql, id)[0][0] - 1
+    @@all[dog]
   end
 
   def self.create_table
