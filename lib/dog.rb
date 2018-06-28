@@ -10,7 +10,7 @@ class Dog
   end
 
   def self.new_from_db(row)
-
+    
   end
 
   def save
@@ -24,6 +24,7 @@ class Dog
       DB[:conn].execute(sql, self.name, self.breed)
       @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")
     end
+    self
   end
 
   def self.find_by_id(id)
@@ -33,7 +34,7 @@ class Dog
     SQL
     DB[:conn].execute(sql, id).first
   end
-
+  
   def self.create_table
     sql = <<-SQL
       CREATE TABLE IF NOT EXISTS dogs (
